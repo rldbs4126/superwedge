@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>부성테크빌드(주) - 무진동 암반 파쇄 전문기업</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Noto Sans KR', sans-serif; color: #1a1a1a; }
+    :root {
+      --green: #2D6A2D;
+      --green-light: #4A9E4A;
+      --green-dark: #1a4a1a;
+      --green-bg: #f0f7f0;
+      --text: #1a1a1a;
+      --text-muted: #666;
+    }
+
+    /* NAV */
+    .nav {
+      background: var(--green-dark);
+      padding: 0 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 70px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav-logo { display: flex; align-items: center; gap: 12px; }
+    .logo-circle {
+      width: 42px; height: 42px; border-radius: 50%;
+      background: var(--green-light);
+      display: flex; align-items: center; justify-content: center;
+      color: white; font-weight: 700; font-size: 13px;
+      border: 2px solid rgba(255,255,255,0.3);
+    }
+    .nav-name { color: white; font-size: 15px; font-weight: 600; line-height: 1.3; }
+    .nav-name span { display: block; font-size: 10px; font-weight: 400; opacity: 0.7; letter-spacing: 1px; }
+    .nav-menu { display: flex; gap: 36px; list-style: none; }
+    .nav-menu a { color: rgba(255,255,255,0.85); text-decoration: none; font-size: 14px; font-weight: 500; }
+    .nav-menu a:hover { color: white; }
+    .nav-cta {
+      background: var(--green-light); color: white; border: none;
+      padding: 10px 22px; border-radius: 6px; font-size: 13px; font-weight: 600; cursor: pointer;
+      font-family: 'Noto Sans KR', sans-serif;
+    }
+
+    /* HERO */
+    .hero {
+      background: linear-gradient(135deg, var(--green-dark) 0%, var(--green) 60%, var(--green-light) 100%);
+      padding: 120px 60px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; top: -50%; left: -50%;
+      width: 200%; height: 200%;
+      background: repeating-linear-gradient(45deg, transparent, transparent 30px, rgba(255,255,255,0.02) 30px, rgba(255,255,255,0.02) 60px);
+    }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.15); color: rgba(255,255,255,0.9);
+      padding: 6px 18px; border-radius: 20px; font-size: 12px;
+      letter-spacing: 1.5px; font-weight: 500; margin-bottom: 28px;
+      border: 1px solid rgba(255,255,255,0.2); position: relative;
+    }
+    .hero h1 {
+      color: white; font-size: 48px; font-weight: 700;
+      line-height: 1.3; margin-bottom: 20px; position: relative;
+    }
+    .hero h1 em { font-style: normal; color: #a8e6a8; }
+    .hero p {
+      color: rgba(255,255,255,0.8); font-size: 18px; line-height: 1.8;
+      max-width: 580px; margin: 0 auto 48px; position: relative;
+    }
+    .hero-btns { display: flex; gap: 14px; justify-content: center; position: relative; }
+    .btn-primary {
+      background: white; color: var(--green-dark);
+      padding: 16px 36px; border-radius: 8px; font-size: 15px; font-weight: 700;
+      border: none; cursor: pointer; font-family: 'Noto Sans KR', sans-serif;
+    }
+    .btn-secondary {
+      background: transparent; color: white;
+      padding: 16px 36px; border-radius: 8px; font-size: 15px; font-weight: 600;
+      border: 2px solid rgba(255,255,255,0.5); cursor: pointer; font-family: 'Noto Sans KR', sans-serif;
+    }
+
+    /* STATS */
+    .stats {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 1px; background-color: #e0e0e0; border-bottom: 1px solid #e0e0e0;
+    }
+    .stat-item { background: white; padding: 40px 24px; text-align: center; }
+    .stat-num { font-size: 42px; font-weight: 700; color: var(--green); line-height: 1; margin-bottom: 10px; }
+    .stat-label { font-size: 13px; color: var(--text-muted); line-height: 1.5; }
+
+    /* SECTIONS */
+    .section { padding: 100px 60px; }
+    .section-bg { background: var(--green-bg); }
+    .section-title { text-align: center; margin-bottom: 56px; }
+    .section-title .tag {
+      display: inline-block; background: var(--green-bg); color: var(--green);
+      padding: 4px 16px; border-radius: 20px; font-size: 11px; font-weight: 600;
+      letter-spacing: 1.5px; margin-bottom: 14px; border: 1px solid rgba(45,106,45,0.2);
+    }
+    .section-title h2 { font-size: 32px; font-weight: 700; margin-bottom: 12px; }
+    .section-title p { color: var(--text-muted); font-size: 16px; }
+
+    /* FEATURES */
+    .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; max-width: 1100px; margin: 0 auto; }
+    .feature-card {
+      background: white; border-radius: 12px; padding: 32px 28px;
+      border: 1px solid #e8f0e8;
+    }
+    .feature-icon {
+      width: 52px; height: 52px; background: var(--green-bg);
+      border-radius: 10px; display: flex; align-items: center; justify-content: center;
+      margin-bottom: 18px; font-size: 24px;
+    }
+    .feature-card h3 { font-size: 17px; font-weight: 700; margin-bottom: 10px; }
+    .feature-card p { font-size: 14px; color: var(--text-muted); line-height: 1.7; }
+
+    /* EQUIPMENT */
+    .equipment-section {
+      background: var(--green-dark); padding: 100px 60px; text-align: center;
+    }
+    .equipment-section .tag {
+      display: inline-block; background: rgba(255,255,255,0.1);
+      color: rgba(255,255,255,0.8); padding: 4px 16px; border-radius: 20px;
+      font-size: 11px; letter-spacing: 1.5px; margin-bottom: 14px;
+    }
+    .equipment-section h2 { color: white; font-size: 32px; font-weight: 700; margin-bottom: 14px; }
+    .equipment-section > p { color: rgba(255,255,255,0.7); font-size: 16px; margin-bottom: 56px; }
+    .equipment-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; max-width: 860px; margin: 0 auto; }
+    .eq-card {
+      background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 10px; padding: 28px 20px;
+    }
+    .eq-card h4 { color: #a8e6a8; font-size: 15px; font-weight: 700; margin-bottom: 8px; }
+    .eq-card p { color: rgba(255,255,255,0.6); font-size: 13px; }
+
+    /* PROCESS */
+    .process { padding: 100px 60px; background: white; }
+    .process-steps { display: flex; align-items: flex-start; max-width: 1000px; margin: 0 auto; }
+    .step { flex: 1; text-align: center; position: relative; }
+    .step:not(:last-child)::after {
+      content: ''; position: absolute; top: 24px; right: -50%;
+      width: 100%; height: 2px; background: #ddd;
+    }
+    .step-num {
+      width: 48px; height: 48px; border-radius: 50%;
+      background: var(--green); color: white; font-weight: 700; font-size: 18px;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 18px; position: relative; z-index: 1;
+    }
+    .step h4 { font-size: 14px; font-weight: 700; margin-bottom: 6px; }
+    .step p { font-size: 12px; color: var(--text-muted); line-height: 1.6; }
+
+    /* CTA */
+    .cta-section { background: var(--green); padding: 100px 60px; text-align: center; }
+    .cta-section h2 { color: white; font-size: 36px; font-weight: 700; margin-bottom: 14px; }
+    .cta-section p { color: rgba(255,255,255,0.8); font-size: 17px; margin-bottom: 40px; }
+    .cta-btns { display: flex; gap: 14px; justify-content: center; }
+
+    /* FOOTER */
+    .footer { background: #111; padding: 60px 60px 28px; }
+    .footer-top {
+      display: flex; justify-content: space-between;
+      margin-bottom: 36px; padding-bottom: 36px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    .footer-info h3 { color: white; font-size: 16px; font-weight: 700; margin-bottom: 10px; }
+    .footer-info p { color: rgba(255,255,255,0.55); font-size: 13px; line-height: 1.9; }
+    .footer-contact p { color: rgba(255,255,255,0.55); font-size: 13px; line-height: 1.9; text-align: right; }
+    .footer-bottom { font-size: 12px; text-align: center; color: rgba(255,255,255,0.3); }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .nav { padding: 0 20px; }
+      .nav-menu { display: none; }
+      .hero { padding: 80px 24px; }
+      .hero h1 { font-size: 30px; }
+      .stats { grid-template-columns: repeat(2, 1fr); }
+      .section { padding: 60px 24px; }
+      .features-grid { grid-template-columns: 1fr; }
+      .equipment-cards { grid-template-columns: 1fr; }
+      .process-steps { flex-direction: column; gap: 32px; }
+      .step:not(:last-child)::after { display: none; }
+      .footer-top { flex-direction: column; gap: 24px; }
+      .footer-contact p { text-align: left; }
+      .footer { padding: 40px 24px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-logo">
+    <div class="logo-circle">BTB</div>
+    <div class="nav-name">
+      부성테크빌드(주)
+      <span>BS TECH BUILD CO.,LTD.</span>
+    </div>
+  </div>
+  <ul class="nav-menu">
+    <li><a href="#">회사소개</a></li>
+    <li><a href="#">장비소개</a></li>
+    <li><a href="#">시공실적</a></li>
+    <li><a href="#">문의하기</a></li>
+  </ul>
+  <button class="nav-cta">견적 문의</button>
+</nav>
+
+<section class="hero">
+  <div class="hero-badge">무진동 암반 파쇄 전문기업</div>
+  <h1>소음 없이, <em>정밀하게</em><br>암반을 파쇄합니다</h1>
+  <p>부성테크빌드의 특수 무진동 공법으로<br>도심지·민감지역 어디서든 안전하고 조용하게 시공합니다</p>
+  <div class="hero-btns">
+    <button class="btn-primary">시공실적 보기</button>
+    <button class="btn-secondary">장비 문의하기</button>
+  </div>
+</section>
+
+<div class="stats">
+  <div class="stat-item">
+    <div class="stat-num">20+</div>
+    <div class="stat-label">업력 (년)</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num">500+</div>
+    <div class="stat-label">시공 현장</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num">100%</div>
+    <div class="stat-label">무진동 공법</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num">24h</div>
+    <div class="stat-label">긴급 출동 대응</div>
+  </div>
+</div>
+
+<section class="section section-bg">
+  <div class="section-title">
+    <div class="tag">WHY BTB</div>
+    <h2>왜 부성테크빌드인가요?</h2>
+    <p>20년 이상의 현장 경험과 특수 장비로 차별화된 시공을 제공합니다</p>
+  </div>
+  <div class="features-grid">
+    <div class="feature-card">
+      <div class="feature-icon">🔇</div>
+      <h3>무소음·무진동</h3>
+      <p>주변 구조물과 민원 걱정 없이 도심지 시공이 가능한 특수 공법을 보유하고 있습니다</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">⚙️</div>
+      <h3>자체 장비 보유</h3>
+      <p>SuperWedge 전용 장비를 직접 보유·운영하여 빠른 투입과 안정적인 시공을 보장합니다</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🏗️</div>
+      <h3>풍부한 시공 실적</h3>
+      <p>500개 이상의 현장 경험과 전국 주요 건설사와의 협력으로 검증된 기술력을 보유합니다</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🌍</div>
+      <h3>해외 수출 실적</h3>
+      <p>국내를 넘어 해외에도 장비를 수출하는 기술력 있는 전문 제조기업입니다</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">📋</div>
+      <h3>전문 기술 인력</h3>
+      <p>토목·건설 전문 자격을 갖춘 숙련된 기술진이 현장을 직접 관리합니다</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🚨</div>
+      <h3>긴급 출동 가능</h3>
+      <p>24시간 긴급 상황에 신속하게 대응하여 공기 지연을 최소화합니다</p>
+    </div>
+  </div>
+</section>
+
+<section class="equipment-section">
+  <div class="tag">EQUIPMENT</div>
+  <h2>핵심 장비 — SuperWedge</h2>
+  <p>무진동 암반 파쇄를 위한 독자 개발 특수 장비</p>
+  <div class="equipment-cards">
+    <div class="eq-card">
+      <h4>무진동 파쇄</h4>
+      <p>폭발 없이 정밀하게 암반을 분쇄</p>
+    </div>
+    <div class="eq-card">
+      <h4>도심지 적용 가능</h4>
+      <p>민감 구역·아파트 인근 시공 가능</p>
+    </div>
+    <div class="eq-card">
+      <h4>빠른 시공 속도</h4>
+      <p>기존 공법 대비 효율적인 작업 속도</p>
+    </div>
+  </div>
+</section>
+
+<section class="process">
+  <div class="section-title">
+    <div class="tag" style="background:var(--green-bg);color:var(--green);border:1px solid rgba(45,106,45,0.2);">PROCESS</div>
+    <h2>시공 진행 절차</h2>
+    <p>문의부터 완료까지 체계적으로 진행합니다</p>
+  </div>
+  <div class="process-steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <h4>문의 접수</h4>
+      <p>현장 정보 및<br>요구사항 파악</p>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <h4>현장 조사</h4>
+      <p>암반 상태 및<br>환경 분석</p>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <h4>견적 제안</h4>
+      <p>공법·비용·기간<br>제안서 제출</p>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <h4>계약 체결</h4>
+      <p>공사 계획 확정<br>및 일정 조율</p>
+    </div>
+    <div class="step">
+      <div class="step-num">5</div>
+      <h4>시공 완료</h4>
+      <p>품질 검사 및<br>결과 보고</p>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <h2>지금 바로 견적을 문의하세요</h2>
+  <p>현장 조건에 맞는 최적의 공법과 비용을 안내해드립니다</p>
+  <div class="cta-btns">
+    <button class="btn-primary">견적 문의하기</button>
+    <button class="btn-secondary" style="border-color:rgba(255,255,255,0.5)">전화 문의</button>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-top">
+    <div class="footer-info">
+      <h3>부성테크빌드(주) · BS TECH BUILD CO.,LTD.</h3>
+      <p>사업자등록번호 : 000-00-00000<br>
+      대표이사 : 홍길동<br>
+      주소 : 경기도 화성시 ○○○</p>
+    </div>
+    <div class="footer-contact">
+      <p>Tel : 000-0000-0000<br>
+      Fax : 000-0000-0000<br>
+      Email : info@bstechbuild.com</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    © 2025 BS TECH BUILD CO.,LTD. All rights reserved.
+  </div>
+</footer>
+
+</body>
+</html>
