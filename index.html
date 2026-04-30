@@ -208,21 +208,30 @@
     </div>
   </div>
   <ul class="nav-menu">
-    <li><a href="#">회사소개</a></li>
-    <li><a href="#">장비소개</a></li>
-    <li><a href="#">시공실적</a></li>
-    <li><a href="#">문의하기</a></li>
+    <li><a href="about.html">회사소개</a></li>
+    <li><a href="method.html">공법소개</a></li>
+    <li><a href="equipment.html">장비소개</a></li>
+    <li><a href="projects.html">시공실적</a></li>
+    <li><a href="contact.html">문의하기</a></li>
   </ul>
-  <button class="nav-cta">견적 문의</button>
+  <button class="nav-cta" onclick="location.href='contact.html'">견적 문의</button>
 </nav>
 
-<section class="hero">
-  <div class="hero-badge">무진동 암반 파쇄 전문기업</div>
-  <h1>소음 없이, <em>정밀하게</em><br>암반을 파쇄합니다</h1>
-  <p>부성테크빌드의 특수 무진동 공법으로<br>도심지·민감지역 어디서든 안전하고 조용하게 시공합니다</p>
-  <div class="hero-btns">
-    <button class="btn-primary">시공실적 보기</button>
-    <button class="btn-secondary">장비 문의하기</button>
+<section class="hero" style="position:relative; overflow:hidden;">
+  <!-- 배경사진 자리 (나중에 img 태그로 교체) -->
+  <div style="position:absolute;inset:0;background:rgba(0,0,0,0.45);z-index:0;"></div>
+  <div id="hero-bg" style="position:absolute;inset:0;background:linear-gradient(135deg,var(--green-dark) 0%,var(--green) 60%,var(--green-light) 100%);z-index:-1;"></div>
+  <div style="position:relative;z-index:1;">
+    <div class="hero-badge">무진동 암반 파쇄 전문기업 · BS TECH BUILD</div>
+    <h1 style="font-size:52px; letter-spacing:-1px; line-height:1.15;">
+      NO VIBRATION, NO NOISE,<br>NO BLASTING<br>
+      <em style="font-size:32px; letter-spacing:2px;">IT'S SUPER WEDGE</em>
+    </h1>
+    <p>부성테크빌드의 특수 무진동 공법으로<br>도심지·민감지역 어디서든 안전하고 조용하게 시공합니다</p>
+    <div class="hero-btns">
+      <button class="btn-primary" onclick="location.href='projects.html'">시공실적 보기</button>
+      <button class="btn-secondary" onclick="location.href='equipment.html'">장비 소개 보기</button>
+    </div>
   </div>
 </section>
 
