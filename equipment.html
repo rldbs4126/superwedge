@@ -64,7 +64,7 @@
 
     .model-tabs { display: flex; gap: 10px; justify-content: center; margin-bottom: 40px; }
     .tab-btn {
-      padding: 10px 28px; border-radius: 8px; font-size: 14px; font-weight: 600;
+      padding: 10px 36px; border-radius: 8px; font-size: 14px; font-weight: 600;
       border: 2px solid var(--green); cursor: pointer;
       background: white; color: var(--green);
       font-family: 'Noto Sans KR', sans-serif; transition: all 0.2s;
@@ -75,10 +75,11 @@
     .model-panel { display: none; }
     .model-panel.active { display: block; }
 
+    /* 카드 - 세로 배치 */
     .model-card {
       background: white; border-radius: 16px;
       border: 1px solid #d0e8d0; overflow: hidden;
-      max-width: 960px; margin: 0 auto;
+      max-width: 860px; margin: 0 auto;
     }
     .model-header {
       background: var(--green-dark); padding: 28px 36px;
@@ -91,39 +92,34 @@
       padding: 6px 18px; border-radius: 20px; font-size: 13px; font-weight: 700;
     }
 
-    .model-body { display: grid; grid-template-columns: 1fr 1.6fr; }
-
+    /* 사진 영역 - 상단 전체 너비 */
     .photo-area {
-      border-right: 1px solid #e8f0e8;
-      padding: 36px 28px;
-      display: flex; flex-direction: column; gap: 16px;
-      align-items: center; justify-content: center;
+      width: 100%; padding: 32px 40px;
+      border-bottom: 1px solid #e8f0e8;
+      background: white;
+      display: flex; align-items: center; justify-content: center;
     }
-    .photo-box {
-      width: 100%; aspect-ratio: 4/3;
-      background: var(--green-bg); border-radius: 12px;
-      border: 2px dashed #a8d5a8;
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center; gap: 10px;
+    .photo-area img {
+      width: 100%; max-height: 380px;
+      object-fit: contain; border-radius: 8px;
     }
-    .photo-box svg { width: 36px; height: 36px; stroke: #a8d5a8; fill: none; stroke-width: 1.5; }
-    .photo-box span { font-size: 13px; color: #aaa; font-weight: 500; }
-    .photo-box small { font-size: 11px; color: #ccc; }
 
+    /* 적용현장 태그 */
     .app-tag {
-      width: 100%; background: var(--green-bg); border-radius: 8px;
-      padding: 12px 16px; border: 1px solid #d0e8d0;
+      margin: 20px 40px 0;
+      background: var(--green-bg); border-radius: 8px;
+      padding: 14px 20px; border: 1px solid #d0e8d0;
     }
     .app-tag p { font-size: 11px; font-weight: 700; color: var(--green); letter-spacing: 1px; margin-bottom: 6px; }
-    .app-tag span { font-size: 13px; color: var(--text); font-weight: 500; line-height: 1.6; }
+    .app-tag span { font-size: 14px; color: var(--text); font-weight: 500; }
 
-    .spec-area { padding: 36px 32px; }
+    /* 사양표 영역 - 하단 */
+    .spec-area { padding: 24px 40px 36px; }
     .spec-area h4 {
       font-size: 12px; font-weight: 700; color: var(--green);
-      letter-spacing: 1.5px; margin-bottom: 20px;
-      padding-bottom: 12px; border-bottom: 2px solid var(--green-bg);
+      letter-spacing: 1.5px; margin-bottom: 16px;
+      padding-bottom: 10px; border-bottom: 2px solid var(--green-bg);
     }
-
     .ton-headers {
       display: grid; grid-template-columns: 1.6fr 0.7fr repeat(3, 1fr); gap: 0;
     }
@@ -132,15 +128,11 @@
       font-size: 12px; font-weight: 700; text-align: center;
       padding: 8px 4px; border: 1px solid #d0e8d0;
     }
-    .ton-header:first-child, .ton-header:nth-child(2) {
-      background: #e8f0e8; color: var(--text-muted);
-    }
-
+    .ton-header:first-child, .ton-header:nth-child(2) { background: #e8f0e8; color: var(--text-muted); }
     .spec-table { width: 100%; border-collapse: collapse; }
     .spec-table tr { border-bottom: 1px solid #f0f0f0; }
-    .spec-table tr:last-child { border-bottom: none; }
     .spec-table td {
-      padding: 9px 8px; font-size: 13px; vertical-align: middle;
+      padding: 10px 8px; font-size: 13px; vertical-align: middle;
       border: 1px solid #f0f0f0; text-align: center;
     }
     .spec-table td:first-child {
@@ -150,20 +142,16 @@
     .spec-table td.unit { color: #bbb; font-size: 11px; background: #fafafa; }
     .spec-table td.val { color: var(--text); font-weight: 600; }
     .spec-table td.val-span { color: var(--text); font-weight: 600; }
-
     .spec-note {
-      margin-top: 16px; padding: 12px 16px;
+      margin-top: 14px; padding: 12px 16px;
       background: var(--green-bg); border-radius: 8px;
       border-left: 4px solid var(--green);
-      font-size: 13px; color: #555; line-height: 1.6;
+      font-size: 13px; color: #555;
     }
 
     /* 인증 섹션 */
     .cert-section { padding: 80px 60px; background: white; }
-    .cert-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
-      max-width: 960px; margin: 0 auto;
-    }
+    .cert-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; max-width: 960px; margin: 0 auto; }
     .cert-item {
       background: var(--green-bg); border-radius: 10px;
       padding: 20px; border: 1px solid #d0e8d0;
@@ -179,10 +167,7 @@
 
     /* 적용현장 */
     .application { padding: 80px 60px; background: var(--green-bg); }
-    .app-list {
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
-      max-width: 960px; margin: 0 auto;
-    }
+    .app-list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; max-width: 960px; margin: 0 auto; }
     .app-item {
       background: white; border-radius: 10px;
       padding: 20px; border: 1px solid #d0e8d0;
@@ -208,10 +193,9 @@
       .page-hero { padding: 60px 24px; }
       .page-hero h1 { font-size: 28px; }
       .equipment-section { padding: 60px 24px; }
-      .model-tabs { flex-direction: column; align-items: center; }
-      .model-body { grid-template-columns: 1fr; }
-      .photo-area { border-right: none; border-bottom: 1px solid #e8f0e8; }
-      .ton-headers { grid-template-columns: 1.2fr 0.6fr repeat(3, 1fr); }
+      .photo-area { padding: 24px; }
+      .app-tag { margin: 16px 24px 0; }
+      .spec-area { padding: 20px 24px 28px; }
       .cert-section { padding: 60px 24px; }
       .cert-grid { grid-template-columns: 1fr; }
       .application { padding: 60px 24px; }
@@ -259,99 +243,47 @@
     </div>
 
     <div class="model-tabs">
+      <button class="tab-btn active" onclick="showTab('tsw', this)">TSW-1100</button>
       <button class="tab-btn" onclick="showTab('sw', this)">SW-1100</button>
-      <button class="tab-btn active" onclick="showTab('tsw', this)">TSW-1100 ★ 대표모델</button>
-      <button class="tab-btn" onclick="showTab('mtsw', this)">MTSW-800</button>
     </div>
 
-    <!-- TSW-1100 (대표모델) -->
+    <!-- TSW-1100 -->
     <div class="model-panel active" id="panel-tsw">
       <div class="model-card">
         <div class="model-header">
           <div class="model-header-info">
             <h3>TSW-1100</h3>
-            <p>수평·수직 무진동 암반 파쇄기 · Twin Super Wedge</p>
+            <p>수평·수직 무진동 암반 파쇄기 · Tunnel Super Wedge</p>
           </div>
-          <div class="model-badge">★ 대표 모델</div>
         </div>
-        <div class="model-body">
-          <div class="photo-area">
-            <div class="photo-box" style="background:white; border:1px solid #e8f0e8; aspect-ratio:16/9;">
-              <img src="tsw.jpg" style="width:100%; height:100%; border-radius:10px; object-fit:contain;">
-            </div>
-            <div class="app-tag">
-              <p>적용현장</p>
-              <span>수평·수직파쇄, 터널작업 (높이 5.5m 이상)</span>
-            </div>
+        <div class="photo-area">
+          <img src="tsw.jpg" alt="TSW-1100 장비 사진">
+        </div>
+        <div class="app-tag">
+          <p>적용현장</p>
+          <span>수평·수직파쇄, 터널작업 (높이 5.5m 이상)</span>
+        </div>
+        <div class="spec-area">
+          <h4>규격 및 제원</h4>
+          <div class="ton-headers">
+            <div class="ton-header">항목</div>
+            <div class="ton-header">단위</div>
+            <div class="ton-header">11~14 ton</div>
+            <div class="ton-header">19~24 ton</div>
+            <div class="ton-header">24~32 ton</div>
           </div>
-          <div class="spec-area">
-            <h4>규격 및 제원</h4>
-            <div class="ton-headers">
-              <div class="ton-header">항목</div>
-              <div class="ton-header">단위</div>
-              <div class="ton-header">11~14 ton</div>
-              <div class="ton-header">19~24 ton</div>
-              <div class="ton-header">24~32 ton</div>
-            </div>
-            <table class="spec-table">
-              <tr>
-                <td>최대사용압력</td>
-                <td class="unit">kg/cm²</td>
-                <td class="val">320</td>
-                <td class="val">320</td>
-                <td class="val">320</td>
-              </tr>
-              <tr>
-                <td>표준사용압력</td>
-                <td class="unit">kg/cm²</td>
-                <td class="val">220</td>
-                <td class="val">220</td>
-                <td class="val">220</td>
-              </tr>
-              <tr>
-                <td>사용유량</td>
-                <td class="unit">L/min</td>
-                <td class="val">100~120</td>
-                <td class="val">160~180</td>
-                <td class="val">160~180</td>
-              </tr>
-              <tr>
-                <td>최대할암력</td>
-                <td class="unit">ton</td>
-                <td class="val">2,400</td>
-                <td class="val">2,400</td>
-                <td class="val">2,400</td>
-              </tr>
-              <tr>
-                <td>할암폭</td>
-                <td class="unit">mm</td>
-                <td class="val">15~20</td>
-                <td class="val">15~20</td>
-                <td class="val">15~20</td>
-              </tr>
-              <tr>
-                <td>천공경</td>
-                <td class="unit">mm</td>
-                <td class="val-span" colspan="3">Ø76, 89</td>
-              </tr>
-              <tr>
-                <td>파쇄깊이</td>
-                <td class="unit">mm</td>
-                <td class="val-span" colspan="3">900 ~ 1,200</td>
-              </tr>
-              <tr>
-                <td>규격 (A×B×C)</td>
-                <td class="unit">mm</td>
-                <td class="val-span" colspan="3">1,900 × 1,600 × 800</td>
-              </tr>
-              <tr>
-                <td>중량</td>
-                <td class="unit">kg</td>
-                <td class="val-span" colspan="3">1,700</td>
-              </tr>
-            </table>
-            <div class="spec-note">파쇄부 날개(COUNT-WEDGE)에 GREASE 자동공급장치 부착</div>
-          </div>
+          <table class="spec-table">
+            <tr><td>최대사용압력</td><td class="unit">kg/cm²</td><td class="val">320</td><td class="val">320</td><td class="val">320</td></tr>
+            <tr><td>표준사용압력</td><td class="unit">kg/cm²</td><td class="val">220</td><td class="val">220</td><td class="val">220</td></tr>
+            <tr><td>사용유량</td><td class="unit">L/min</td><td class="val">100~120</td><td class="val">160~180</td><td class="val">160~180</td></tr>
+            <tr><td>최대할암력</td><td class="unit">ton</td><td class="val">2,400</td><td class="val">2,400</td><td class="val">2,400</td></tr>
+            <tr><td>할암폭</td><td class="unit">mm</td><td class="val">15~20</td><td class="val">15~20</td><td class="val">15~20</td></tr>
+            <tr><td>천공경</td><td class="unit">mm</td><td class="val-span" colspan="3">Ø76, 89</td></tr>
+            <tr><td>파쇄깊이</td><td class="unit">mm</td><td class="val-span" colspan="3">900 ~ 1,200</td></tr>
+            <tr><td>규격 (A×B×C)</td><td class="unit">mm</td><td class="val-span" colspan="3">1,900 × 1,600 × 800</td></tr>
+            <tr><td>중량</td><td class="unit">kg</td><td class="val-span" colspan="3">1,700</td></tr>
+          </table>
+          <div class="spec-note">파쇄부 날개(COUNT-WEDGE)에 GREASE 자동공급장치 부착</div>
         </div>
       </div>
     </div>
@@ -365,177 +297,34 @@
             <p>수직전용 무진동 암반 파쇄기 · Standard Super Wedge</p>
           </div>
         </div>
-        <div class="model-body">
-          <div class="photo-area">
-            <div class="photo-box" style="background:white; border:1px solid #e8f0e8; aspect-ratio:16/9;">
-              <img src="sw.jpg" style="width:100%; height:100%; border-radius:10px; object-fit:contain;">
-            </div>
-            <div class="app-tag">
-              <p>적용현장</p>
-              <span>절취, 터파기, 관로, 수직터널 등 지상작업</span>
-            </div>
-          </div>
-          <div class="spec-area">
-            <h4>규격 및 제원</h4>
-            <div class="ton-headers">
-              <div class="ton-header">항목</div>
-              <div class="ton-header">단위</div>
-              <div class="ton-header">11~14 ton</div>
-              <div class="ton-header">19~24 ton</div>
-              <div class="ton-header">24~32 ton</div>
-            </div>
-            <table class="spec-table">
-              <tr>
-                <td>최대사용압력</td>
-                <td class="unit">kg/cm²</td>
-                <td class="val">320</td>
-                <td class="val">320</td>
-                <td class="val">320</td>
-              </tr>
-              <tr>
-                <td>표준사용압력</td>
-                <td class="unit">kg/cm²</td>
-                <td class="val">220</td>
-                <td class="val">220</td>
-                <td class="val">220</td>
-              </tr>
-              <tr>
-                <td>사용유량</td>
-                <td class="unit">L/min</td>
-                <td class="val">100~120</td>
-                <td class="val">160~180</td>
-                <td class="val">160~180</td>
-              </tr>
-              <tr>
-                <td>최대할암력</td>
-                <td class="unit">ton</td>
-                <td class="val">2,400</td>
-                <td class="val">2,400</td>
-                <td class="val">2,400</td>
-              </tr>
-              <tr>
-                <td>할암폭</td>
-                <td class="unit">mm</td>
-                <td class="val">10~20</td>
-                <td class="val">10~20</td>
-                <td class="val">10~20</td>
-              </tr>
-              <tr>
-                <td>천공경</td>
-                <td class="unit">mm</td>
-                <td class="val-span" colspan="3">Ø76</td>
-              </tr>
-              <tr>
-                <td>파쇄깊이</td>
-                <td class="unit">mm</td>
-                <td class="val-span" colspan="3">900 ~ 1,200</td>
-              </tr>
-              <tr>
-                <td>규격 (A×B×C)</td>
-                <td class="unit">mm</td>
-                <td class="val-span" colspan="3">700 × 2,100 × 1,200</td>
-              </tr>
-              <tr>
-                <td>중량</td>
-                <td class="unit">kg</td>
-                <td class="val-span" colspan="3">1,300</td>
-              </tr>
-            </table>
-            <div class="spec-note">파쇄부 날개(COUNT-WEDGE)에 GREASE 자동공급장치 부착</div>
-          </div>
+        <div class="photo-area">
+          <img src="sw.jpg" alt="SW-1100 장비 사진">
         </div>
-      </div>
-    </div>
-
-    <!-- MTSW-800 -->
-    <div class="model-panel" id="panel-mtsw">
-      <div class="model-card">
-        <div class="model-header">
-          <div class="model-header-info">
-            <h3>MTSW-800</h3>
-            <p>무진동 암반 파쇄기 · Mini Twin Super Wedge</p>
-          </div>
+        <div class="app-tag">
+          <p>적용현장</p>
+          <span>절취, 터파기, 관로, 수직터널 등 지상작업</span>
         </div>
-        <div class="model-body">
-          <div class="photo-area">
-            <div class="photo-box">
-              <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
-              <span>장비 사진</span>
-              <small>사진 업로드 예정</small>
-            </div>
-            <div class="app-tag">
-              <p>적용현장</p>
-              <span>추후 입력 예정</span>
-            </div>
+        <div class="spec-area">
+          <h4>규격 및 제원</h4>
+          <div class="ton-headers">
+            <div class="ton-header">항목</div>
+            <div class="ton-header">단위</div>
+            <div class="ton-header">11~14 ton</div>
+            <div class="ton-header">19~24 ton</div>
+            <div class="ton-header">24~32 ton</div>
           </div>
-          <div class="spec-area">
-            <h4>규격 및 제원</h4>
-            <div class="ton-headers">
-              <div class="ton-header">항목</div>
-              <div class="ton-header">단위</div>
-              <div class="ton-header">11~14 ton</div>
-              <div class="ton-header">19~24 ton</div>
-              <div class="ton-header">24~32 ton</div>
-            </div>
-            <table class="spec-table">
-              <tr>
-                <td>최대사용압력</td>
-                <td class="unit">kg/cm²</td>
-                <td class="val">-</td>
-                <td class="val">-</td>
-                <td class="val">-</td>
-              </tr>
-              <tr>
-                <td>표준사용압력</td>
-                <td class="unit">kg/cm²</td>
-                <td class="val">-</td>
-                <td class="val">-</td>
-                <td class="val">-</td>
-              </tr>
-              <tr>
-                <td>사용유량</td>
-                <td class="unit">L/min</td>
-                <td class="val">-</td>
-                <td class="val">-</td>
-                <td class="val">-</td>
-              </tr>
-              <tr>
-                <td>최대할암력</td>
-                <td class="unit">ton</td>
-                <td class="val">-</td>
-                <td class="val">-</td>
-                <td class="val">-</td>
-              </tr>
-              <tr>
-                <td>할암폭</td>
-                <td class="unit">mm</td>
-                <td class="val">-</td>
-                <td class="val">-</td>
-                <td class="val">-</td>
-              </tr>
-              <tr>
-                <td>천공경</td>
-                <td class="unit">mm</td>
-                <td class="val-span" colspan="3">-</td>
-              </tr>
-              <tr>
-                <td>파쇄깊이</td>
-                <td class="unit">mm</td>
-                <td class="val-span" colspan="3">-</td>
-              </tr>
-              <tr>
-                <td>규격 (A×B×C)</td>
-                <td class="unit">mm</td>
-                <td class="val-span" colspan="3">-</td>
-              </tr>
-              <tr>
-                <td>중량</td>
-                <td class="unit">kg</td>
-                <td class="val-span" colspan="3">-</td>
-              </tr>
-            </table>
-            <div class="spec-note">※ MTSW-800 사양은 추후 입력 예정입니다</div>
-          </div>
+          <table class="spec-table">
+            <tr><td>최대사용압력</td><td class="unit">kg/cm²</td><td class="val">320</td><td class="val">320</td><td class="val">320</td></tr>
+            <tr><td>표준사용압력</td><td class="unit">kg/cm²</td><td class="val">220</td><td class="val">220</td><td class="val">220</td></tr>
+            <tr><td>사용유량</td><td class="unit">L/min</td><td class="val">100~120</td><td class="val">160~180</td><td class="val">160~180</td></tr>
+            <tr><td>최대할암력</td><td class="unit">ton</td><td class="val">2,400</td><td class="val">2,400</td><td class="val">2,400</td></tr>
+            <tr><td>할암폭</td><td class="unit">mm</td><td class="val">10~20</td><td class="val">10~20</td><td class="val">10~20</td></tr>
+            <tr><td>천공경</td><td class="unit">mm</td><td class="val-span" colspan="3">Ø76</td></tr>
+            <tr><td>파쇄깊이</td><td class="unit">mm</td><td class="val-span" colspan="3">900 ~ 1,200</td></tr>
+            <tr><td>규격 (A×B×C)</td><td class="unit">mm</td><td class="val-span" colspan="3">700 × 2,100 × 1,200</td></tr>
+            <tr><td>중량</td><td class="unit">kg</td><td class="val-span" colspan="3">1,300</td></tr>
+          </table>
+          <div class="spec-note">파쇄부 날개(COUNT-WEDGE)에 GREASE 자동공급장치 부착</div>
         </div>
       </div>
     </div>
@@ -552,42 +341,15 @@
       <p>Super Wedge 공법의 기술력을 공인 인증으로 확인하세요</p>
     </div>
     <div class="cert-grid">
-      <div class="cert-item">
-        <div class="cert-num">1</div>
-        <p>국토교통부 신기술 제336호</p>
-      </div>
-      <div class="cert-item">
-        <div class="cert-num">2</div>
-        <p>특허 제0478029호<br>무진동 암반파쇄기용 브라켓장치 및 이를 이용한 암반굴착방법</p>
-      </div>
-      <div class="cert-item">
-        <div class="cert-num">3</div>
-        <p>한국철도시설공단 가용 신기술</p>
-      </div>
-      <div class="cert-item">
-        <div class="cert-num">4</div>
-        <p>한국토지공사(LH) 가용 신기술</p>
-      </div>
-      <div class="cert-item">
-        <div class="cert-num">5</div>
-        <p>수자원공사 가용 신기술</p>
-      </div>
-      <div class="cert-item">
-        <div class="cert-num">6</div>
-        <p>유럽인증서 제95120-CE호 CE-MARK</p>
-      </div>
-      <div class="cert-item">
-        <div class="cert-num">7</div>
-        <p>특허 제0293478호 무진동암반파쇄기</p>
-      </div>
-      <div class="cert-item">
-        <div class="cert-num">8</div>
-        <p>특허 제0435120호 무진동암반파쇄기</p>
-      </div>
-      <div class="cert-item">
-        <div class="cert-num">9</div>
-        <p>기술혁신형 중소기업 제130606-00440호</p>
-      </div>
+      <div class="cert-item"><div class="cert-num">1</div><p>국토교통부 신기술 제336호</p></div>
+      <div class="cert-item"><div class="cert-num">2</div><p>특허 제0478029호 무진동 암반파쇄기용 브라켓장치 및 이를 이용한 암반굴착방법</p></div>
+      <div class="cert-item"><div class="cert-num">3</div><p>한국철도시설공단 가용 신기술</p></div>
+      <div class="cert-item"><div class="cert-num">4</div><p>한국토지공사(LH) 가용 신기술</p></div>
+      <div class="cert-item"><div class="cert-num">5</div><p>수자원공사 가용 신기술</p></div>
+      <div class="cert-item"><div class="cert-num">6</div><p>유럽인증서 제95120-CE호 CE-MARK</p></div>
+      <div class="cert-item"><div class="cert-num">7</div><p>특허 제0293478호 무진동암반파쇄기</p></div>
+      <div class="cert-item"><div class="cert-num">8</div><p>특허 제0435120호 무진동암반파쇄기</p></div>
+      <div class="cert-item"><div class="cert-num">9</div><p>기술혁신형 중소기업 제130606-00440호</p></div>
     </div>
   </div>
 </section>
@@ -601,30 +363,12 @@
       <p>다양한 현장에서 활용 가능합니다</p>
     </div>
     <div class="app-list">
-      <div class="app-item">
-        <div class="app-dot"></div>
-        <p>절취, 터파기, 관로, 수직구 등 지상작업</p>
-      </div>
-      <div class="app-item">
-        <div class="app-dot"></div>
-        <p>터널 굴착 작업</p>
-      </div>
-      <div class="app-item">
-        <div class="app-dot"></div>
-        <p>도심지 건물 터파기 공사</p>
-      </div>
-      <div class="app-item">
-        <div class="app-dot"></div>
-        <p>지하철·고속철도 공사</p>
-      </div>
-      <div class="app-item">
-        <div class="app-dot"></div>
-        <p>콘크리트 구조물 파쇄</p>
-      </div>
-      <div class="app-item">
-        <div class="app-dot"></div>
-        <p>민감지역·민원 우려 현장</p>
-      </div>
+      <div class="app-item"><div class="app-dot"></div><p>절취, 터파기, 관로, 수직구 등 지상작업</p></div>
+      <div class="app-item"><div class="app-dot"></div><p>터널 굴착 작업</p></div>
+      <div class="app-item"><div class="app-dot"></div><p>도심지 건물 터파기 공사</p></div>
+      <div class="app-item"><div class="app-dot"></div><p>지하철·고속철도 공사</p></div>
+      <div class="app-item"><div class="app-dot"></div><p>콘크리트 구조물 파쇄</p></div>
+      <div class="app-item"><div class="app-dot"></div><p>민감지역·민원 우려 현장</p></div>
     </div>
   </div>
 </section>
@@ -633,19 +377,13 @@
   <div class="footer-top">
     <div class="footer-info">
       <h3>부성테크빌드(주) · BS TECH BUILD CO.,LTD.</h3>
-      <p>사업자등록번호 : 140-81-43252<br>
-      대표이사 : 이승준<br>
-      주소 : 경기도 화성시 남양읍 주석로80번길 96-15</p>
+      <p>사업자등록번호 : 140-81-43252<br>대표이사 : 이승준<br>주소 : 경기도 화성시 남양읍 주석로80번길 96-15</p>
     </div>
     <div class="footer-contact">
-      <p>Tel : 추후 입력 예정<br>
-      Fax : 추후 입력 예정<br>
-      Email : 추후 입력 예정</p>
+      <p>Tel : 추후 입력 예정<br>Fax : 추후 입력 예정<br>Email : wedge850@naver.com</p>
     </div>
   </div>
-  <div class="footer-bottom">
-    © 2025 BS TECH BUILD CO.,LTD. All rights reserved.
-  </div>
+  <div class="footer-bottom">© 2025 BS TECH BUILD CO.,LTD. All rights reserved.</div>
 </footer>
 
 <script>
@@ -656,6 +394,5 @@
     btn.classList.add('active');
   }
 </script>
-
 </body>
 </html>
